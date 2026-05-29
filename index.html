@@ -11,10 +11,11 @@
 <title>NRI Retirement Path Optimizer &middot; r/rupeestories &middot; rupeestories.substack.com</title>
 
 <meta name="description" content="Compare US retirement, India return, and split-life paths using simplified retirement, tax, RNOR, Roth, ACA, and seasonal-living assumptions. Free planning tool, not tax advice." />
+<meta name="rs-version" content="clean-patched-2026-05-29" />
 
 <style>
 
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+  /* Uses system fonts only so GitHub Pages loads without external font dependency. */
 
   :root {
 
@@ -1812,9 +1813,9 @@
 
         <ul>
 
-          <li><strong>Path A - Status Quo</strong>: maxes 401k contributions during working years. In retirement, withdraws cash, then taxable, then 401k as needed, with iterative gross-up so high withdrawals are not stuck at a flat 22% tax assumption.</li>
+          <li><strong>Path A - Max 401k</strong>: maxes 401k contributions during working years. In retirement, withdraws cash, then taxable, then 401k as needed, with iterative gross-up so high withdrawals are not stuck at a flat 22% tax assumption.</li>
 
-          <li><strong>Path B - Asset Location Pivot</strong>: contributes only enough to capture 401k match; routes the rest to taxable. In retirement, drains taxable and cash before 401k when below 59.5, then income-stacks 401k up to the standard deduction in normal years.</li>
+          <li><strong>Path B - Match Only + Taxable Bridge</strong>: contributes only enough to capture 401k match; routes the rest to taxable. In retirement, drains taxable and cash before 401k when below 59.5, then income-stacks 401k up to the standard deduction in normal years.</li>
 
           <li><strong>Path C - NRI Timing Strategy</strong>: same working-years pivot as Path B, plus retirement-phase timing rules:
 
@@ -4518,6 +4519,13 @@ function drawChart(results, yearsAhead) {
 }
 
 
+
+
+// Explicitly expose click handlers for GitHub Pages / inline onclick.
+window.loadPreset = loadPreset;
+window.runWithFeedback = runWithFeedback;
+window.compute = compute;
+window.showPath = showPath;
 
 // No auto-compute on load. Inputs start blank; user clicks Run when ready.
 
